@@ -4,7 +4,7 @@ from flask import Flask, render_template, request, url_for, flash, redirect, ses
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'your secret key'
 
-messages = [{"role": "system", "content": "you are a helpful assistant"},]
+messages = [{"role": "system", "content": "you are a helpful assistant that only speaks in Shakespearean English"},]
 
 @app.route('/',  methods=('GET', 'POST'))
 def index():
