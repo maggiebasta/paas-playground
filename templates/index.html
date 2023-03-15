@@ -1,11 +1,15 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>{% block title %} Messages {% endblock %}</h1>
-    {% for message in messages %}
-        <div class='message'>
-            <h3>{{ message['title'] }}</h3>
-            <p>{{ message['content'] }}</p>
-        </div>
-    {% endfor %}
+    <form method="post">
+        <label for="content">API KEY</label>
+        <br>
+        <textarea name="content"
+                  placeholder="OpenAI API Key"
+                  rows="4"
+                  cols="60"
+                  >{{ request.form['content'] }}</textarea>
+        <br>
+        <button type="submit">Submit</button>
+    </form>
 {% endblock %}

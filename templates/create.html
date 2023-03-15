@@ -1,15 +1,15 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>{% block title %} Add a New Message {% endblock %}</h1>
-    <form method="post">
-        <label for="title">Title</label>
-        <br>
-        <input type="text" name="title"
-               placeholder="Message title"
-               value="{{ request.form['title'] }}"></input>
-        <br>
+    <h1>{% block title %} Messages {% endblock %}</h1>
+    {% for message in messages %}
+        <div class='message'>
+            <h3>{{ message['title'] }}</h3>
+            <p>{{ message['content'] }}</p>
+        </div>
+    {% endfor %}
 
+    <form method="post">
         <label for="content">Message Content</label>
         <br>
         <textarea name="content"
